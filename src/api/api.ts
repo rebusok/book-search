@@ -2,14 +2,17 @@ import axios from "axios";
 
 const configOMB = {
     baseURL: 'https://openlibrary.org/search.json',
-
 };
 // http://covers.openlibrary.org/b/olid/${id}${size}.jpg
 const axiosInstance = axios.create(configOMB);
-
+export enum sizeTypeCover  {
+    SMALL = 'S',
+    MEDIUM = 'M',
+    LARGE = 'L'
+}
 const Api = {
-    searchBook(q:string) {
-        axiosInstance.get<ResponseType>('', {params: {q, mode:"ebooks", has_fulltext:true}}).then(res => console.log(res))
+    searchBook(q:string, page?:number) {
+       return  axiosInstance.get<ResponseType>('', {params: {q, mode:"ebooks", has_fulltext:true, page}})
     }
 }
 export interface ResponseType {
