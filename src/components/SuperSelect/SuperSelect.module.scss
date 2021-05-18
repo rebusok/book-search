@@ -1,0 +1,14 @@
+.myBox {
+  margin:  0 10px;
+  height: 100%;
+  select {
+    height: 100%;
+    outline: none;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #eee;
+    padding: 2px 3px;
+    font-size: 18px;
+  }
+}

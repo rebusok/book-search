@@ -39,5 +39,7 @@
     background: rgb(112, 112, 112);
 }
 .button_default:disabled {
+    background: rgb(215, 214, 214);
+    cursor: progress;
     opacity: .3;
 }

@@ -10,7 +10,7 @@ interface ModalType {
 }
 
 
-const Modal: FC<ModalType> = ({modal, setModal, children, onClose}) => {
+const Modal: FC<ModalType> = ({modal,  children, onClose}) => {
     const finalModalClassName = `${cls.modal} ${modal ? cls.active : ""}`;
     const finalModalContentClassName = `${cls.modal_content} ${modal ? cls.active : ""}`;
     return (
@@ -21,6 +21,7 @@ const Modal: FC<ModalType> = ({modal, setModal, children, onClose}) => {
 
         }>
             <div className={finalModalContentClassName} onClick={e =>  e.stopPropagation()}>
+
                 {children}
             </div>
         </div>

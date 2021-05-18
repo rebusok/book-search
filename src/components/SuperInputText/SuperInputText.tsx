@@ -14,6 +14,8 @@ type SuperInputTextPropsType = DefaultInputPropsType & {
     setError?:(value:boolean) => void
     className?:string
     children?: ReactNode
+    startTimer?: (value:string) => void
+    disabled?: boolean
 };
 
 const SuperInputText: React.FC<SuperInputTextPropsType> = (
@@ -27,14 +29,12 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
         onBlur,
         setError,
         value,
+        startTimer,
         ...restProps// все остальные пропсы попадут в объект restProps
     }
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange
-        && onChange(e);
-
-        onChangeText && onChangeText(e.currentTarget.value);
+        startTimer && startTimer(e.currentTarget.value);
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
         onKeyPress && onKeyPress(e);

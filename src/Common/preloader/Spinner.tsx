@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import s from './Spinner.module.scss';
 
 const Spinner = () => {
@@ -9,7 +9,7 @@ const Spinner = () => {
     }
 
     return (
-        <Fragment>
+        <>
             <section>
                 <div className={s.loader}>
                     {
@@ -20,7 +20,7 @@ const Spinner = () => {
 
                 </div>
             </section>
-        </Fragment>
+        </>
     )
 }
 

@@ -1,18 +1,26 @@
 import axios from "axios";
 
-const configOMB = {
-    baseURL: 'https://openlibrary.org/search.json',
-};
+
 // http://covers.openlibrary.org/b/olid/${id}${size}.jpg
-const axiosInstance = axios.create(configOMB);
+const axiosInstance = axios.create();
 export enum sizeTypeCover  {
-    SMALL = 'S',
-    MEDIUM = 'M',
-    LARGE = 'L'
+    SMALL = '-S',
+    MEDIUM = '-M',
+    LARGE = '-L'
 }
+export enum urlEnum {
+    SEARCH = 'https://openlibrary.org/search.json',
+    FETCH_ONE_BOOK = 'https://openlibrary.org/works/',
+    FETCH_COVER_ONE_BOOK = 'https://covers.openlibrary.org/b/id/'
+}
+export const urlImg = 'https://covers.openlibrary.org/b/olid/';
+export type RequestStatusType = 'loading' | 'succeeded' | 'failed'
 const Api = {
     searchBook(q:string, page?:number) {
-       return  axiosInstance.get<ResponseType>('', {params: {q, mode:"ebooks", has_fulltext:true, page}})
+       return  axiosInstance.get<ResponseType>(urlEnum.SEARCH, {params: {q, mode:"ebooks", has_fulltext:true, page}})
+    },
+    fetchOneBook(bookId:string) {
+        return axiosInstance.get<ResponseBookInfo>(`${urlEnum.FETCH_ONE_BOOK}${bookId}.json`)
     }
 }
 export interface ResponseType {
@@ -20,6 +28,45 @@ export interface ResponseType {
     num_found: number
     numFound: number
     start: number
+}
+
+export interface ResponseBookInfo {
+    authors: [
+        {
+            author: {key: string},
+            type: {key: string}
+        }
+    ]
+    covers: number[]
+    created: {type: string, value: string}
+    key: string
+    last_modified: {type: string, value: string}
+    latest_revision: number
+    revision: number
+    subjects: string[]
+    title: string
+    type: {
+        key: string
+    }
+    description?: string
+    links?: [
+        {
+            "url": string,
+            "title": string,
+            "type": {
+                "key": string
+            }
+        },
+    ]
+    subject_places?: string[]
+    subject_people?: string[]
+    excerpts?: {
+        "author": {
+            "key": string
+        },
+        "excerpt": string
+        "comment": string
+    }
 }
 
 export interface ResponseBookType {

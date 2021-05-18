@@ -38,14 +38,14 @@ section .loader span::before{
   left: 0;
   width: 15px;
   height: 15px;
-  background: rgb(215, 214, 214);
+  background: rgb(44, 226, 44);
   border-radius: 50%;
-  box-shadow: 0 0 10px rgb(215, 214, 214),
-  0 0 20px rgb(215, 214, 214),
-  0 0 40px rgb(215, 214, 214),
-  0 0 60px rgb(215, 214, 214),
-  0 0 80px rgb(215, 214, 214),
-  0 0 100px rgb(215, 214, 214);
+  box-shadow: 0 0 10px rgb(44, 226, 44),
+  0 0 20px rgb(44, 226, 44),
+  0 0 40px rgb(44, 226, 44),
+  0 0 60px rgb(44, 226, 44),
+  0 0 80px rgb(44, 226, 44),
+  0 0 100px rgb(44, 226, 44);
   animation: animates 2s linear infinite;
 
   animation-delay: calc(0.1s * var(--i));

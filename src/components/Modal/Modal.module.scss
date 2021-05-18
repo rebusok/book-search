@@ -15,14 +15,12 @@
     padding: 20px;
     border-radius: 12px;
     background-color: white;
-    height: 200px;
-    width: 400px;
+    width: 618px;
+    min-height: 527px;
     transform: scale(.5);
     transition: .4s all;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
   }
 }
 
@@ -33,4 +31,15 @@
 
 .modal_content.active {
   transform: scale(1);
+}
+
+@media screen and (max-width: 720px) {
+  .modal {
+    .modal_content {
+      padding: 10px;
+      width: 350px;
+      min-height: 600px;
+    }
+  }
+
 }

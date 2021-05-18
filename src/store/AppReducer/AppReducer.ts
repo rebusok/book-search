@@ -1,29 +1,52 @@
+import {RequestStatusType} from '../../api/api'
+
+
 export interface stateType {
-    isInitial: boolean
+    status: RequestStatusType,
+    errorMes: string | null
+    disableBtn:boolean
 }
 
 
 const initialState: stateType = {
-    isInitial: false,
+    status: "succeeded",
+    errorMes:  null,
+    disableBtn:false
+}
+export enum StatusFetchEnum {
+    OK = 'succeeded',
+    LOADING = 'loading',
+    FAIL = 'failed'
 }
 
 
-//Type
 export enum ActionType {
-    SET_INITIAL_APP = 'APP/INITIAL_APP',
+    SET_STATUS = 'APP/SET_STATUS',
+    SET_ERROR_MES = 'APP/SET_ERROR_MES',
+    SET_DISABLE_BTN = 'APP/SET_DISABLE_BTN',
 }
 
-//actions
-export type AppType = ReturnType<typeof setInitialApp>
+
+export type AppType = ReturnType<typeof setStatusAC>
+    | ReturnType<typeof setErrorMes>
+    | ReturnType<typeof setDisableBtn>
 
 
 export const AppReducer = (state: stateType = initialState, action: AppType): stateType => {
     switch (action.type) {
-        case ActionType.SET_INITIAL_APP:
+        case ActionType.SET_STATUS: {
+            return {...state, ...action.payload}
+        }
+        case ActionType.SET_ERROR_MES:
+            return {...state, ...action.payload}
+        case ActionType.SET_DISABLE_BTN:
             return {...state, ...action.payload}
         default:
             return state
     }
 }
 
-export const setInitialApp = (isInitial:boolean) => ({type:ActionType.SET_INITIAL_APP, payload:{isInitial}})
+export const setStatusAC = (status: RequestStatusType) => ({type: ActionType.SET_STATUS, payload: {status}})
+export const setDisableBtn = (disableBtn: boolean) => ({type: ActionType.SET_DISABLE_BTN, payload: {disableBtn}})
+
+export const setErrorMes = (errorMes: string) => ({type: ActionType.SET_ERROR_MES, payload: {errorMes}})

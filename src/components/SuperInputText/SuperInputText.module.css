@@ -32,3 +32,8 @@
     width: 200px;
 }
 
+.superInput:disabled {
+    opacity: .6;
+    cursor: progress;
+}
+
