@@ -1,23 +1,20 @@
-import {RequestStatusType} from '../../api/api'
+import {RequestStatusType} from "../../data/Types/RootTypes";
 
 
 export interface stateType {
     status: RequestStatusType,
     errorMes: string | null
-    disableBtn:boolean
+    disableBtn: boolean
 }
 
 
 const initialState: stateType = {
     status: "succeeded",
-    errorMes:  null,
-    disableBtn:false
+    errorMes: null,
+    disableBtn: false
 }
-export enum StatusFetchEnum {
-    OK = 'succeeded',
-    LOADING = 'loading',
-    FAIL = 'failed'
-}
+
+
 
 
 export enum ActionType {

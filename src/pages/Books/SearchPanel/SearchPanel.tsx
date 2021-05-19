@@ -18,13 +18,13 @@ const SearchPanel = () => {
         return () => {
             clearTimeout(timerId);
         }
-    },[timerId])
+    }, [timerId])
     const start = (value: string) => {
         setSearchValueH(value)
         stop();
         const id: number = window.setTimeout(() => {
             dispatch(setSearchValueA(value.trim()))
-        }, 2000);
+        }, 1000);
         setTimerId(id);
     }
     const searchHandler = () => {
@@ -32,8 +32,9 @@ const SearchPanel = () => {
     }
     return (
         <div className={cls.searchPanel}>
-            <SuperInputText disabled={disableBtn} onChangeText={setSearchValueH} value={searchValueH} placeholder={'Поиск книг'} startTimer={start}/>
-            <SuperButton onClick={searchHandler} disabled={disableBtn} >
+            <SuperInputText disabled={disableBtn} onChangeText={setSearchValueH} value={searchValueH}
+                            placeholder={'Поиск книг'} startTimer={start}/>
+            <SuperButton onClick={searchHandler} disabled={disableBtn} className={'primary'}>
                 Search
             </SuperButton>
         </div>

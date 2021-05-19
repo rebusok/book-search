@@ -1,0 +1,1 @@
+export type RequestStatusType = 'loading' | 'succeeded' | 'failed'

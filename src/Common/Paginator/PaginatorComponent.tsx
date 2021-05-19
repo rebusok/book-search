@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import styles from './Paginator.module.css'
 import cn from "classnames"
-import SuperSelect from "../../components/SuperSelect/SuperSelect";
+import {SuperSelect} from '../../components'
+
 
 //Paginators
 type PropsType = {
@@ -52,7 +53,8 @@ const Paginator: React.FC<PropsType> = ({
                                  onPageChangeHandler(p);
                              }}>{p}</span>
             })}
-        {pages.length > 0 ? <SuperSelect value={pageSize} options={optionsSelect} onChangeOption={onSelectHandler}/> : null}
+        {pages.length > 0 ?
+            <SuperSelect value={pageSize} options={optionsSelect} onChangeOption={onSelectHandler}/> : null}
         {portionCount > portionNumber &&
         <button className={styles.btn} onClick={() => {
             setPortionNumber(portionNumber + 1)

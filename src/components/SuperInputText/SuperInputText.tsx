@@ -11,10 +11,10 @@ type SuperInputTextPropsType = DefaultInputPropsType & {
     error?: boolean
     spanClassName?: string
     errorMes?: string
-    setError?:(value:boolean) => void
-    className?:string
+    setError?: (value: boolean) => void
+    className?: string
     children?: ReactNode
-    startTimer?: (value:string) => void
+    startTimer?: (value: string) => void
     disabled?: boolean
 };
 
@@ -47,11 +47,11 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
     const finalSpanClassName = `${s.error} ${spanClassName ? spanClassName : ""}`;
     const finalInputClassName = `${s.superInput} ${ErrorBlur && error ? s.errorInput : className ? s[className] : ''}`; // need to fix with (?:) and s.superInput
 
-    const onBlurHandler = (e:React.FocusEvent<HTMLInputElement>) => {
+    const onBlurHandler = (e: React.FocusEvent<HTMLInputElement>) => {
         if (error) {
             onBlur && onBlur(e)
             setErrorBlur(true)
-        } else if (!value){
+        } else if (!value) {
             onBlur && onBlur(e)
             setErrorBlur(true)
             setError && setError(true)
@@ -67,7 +67,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
                 value={value}
                 onKeyPress={onKeyPressCallback}
                 className={finalInputClassName}
-                onBlur={ onBlurHandler}
+                onBlur={onBlurHandler}
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
             />
             {ErrorBlur && error ? <span className={finalSpanClassName}>{errorMes}</span> :

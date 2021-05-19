@@ -13,21 +13,26 @@
     box-shadow: none;
     color: black;
 }
-.errorInput{
+
+.errorInput {
     border-bottom: 1px solid red;
 }
+
 .error {
     color: red;
     font-weight: 600;
 }
-.otherInput, .errorInput{
+
+.otherInput, .errorInput {
     max-width: 350px;
 }
-.otherInput::placeholder, .errorInput::placeholder{
+
+.otherInput::placeholder, .errorInput::placeholder {
     color: black;
     opacity: .5;
     padding: 0 10px;
 }
+
 .search_panel {
     width: 200px;
 }

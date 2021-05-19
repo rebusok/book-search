@@ -1,10 +1,12 @@
 import React from 'react';
 import {Redirect, Route, Switch, useHistory} from 'react-router-dom';
 import {MappedBooks, BookItemInfo} from "../pages/Books";
+import Error404 from "../pages/ErrorPage/Error404";
 
 
 export enum RoutingType {
     main = "/main",
+    error = '/404'
 }
 
 const Routes = () => {
@@ -28,10 +30,8 @@ const Routes = () => {
                         </>
                     )
                 }}/>
-
-
-                {/*<Route path={RoutingType.error} render={()=> <ErrorContainer/>}/>*/}
-                {/*<Redirect from={'*'} to={RoutingType.error}/>*/}
+                <Route path={RoutingType.error} render={() => <Error404/>}/>
+                <Redirect from={'*'} to={RoutingType.error}/>
             </Switch>
         </>
     );

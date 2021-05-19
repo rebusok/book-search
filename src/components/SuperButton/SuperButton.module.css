@@ -11,9 +11,11 @@
     font-weight: bold;
     cursor: pointer;
 }
+
 .btn_table {
     padding: .4em 1em;
 }
+
 .button_red {
     color: black;
     text-decoration: none;
@@ -26,20 +28,46 @@
     font-size: 14px;
     font-weight: bold;
 }
+
 .button_red:hover {
     background: rgb(255, 78, 66);
 }
+
 .button_red:active {
     background: rgb(255, 140, 125);
 }
+
 .button_default:hover {
     background: rgb(196, 196, 196);
 }
+
 .button_default:active {
     background: rgb(112, 112, 112);
 }
+
 .button_default:disabled {
     background: rgb(215, 214, 214);
+    cursor: progress;
+    opacity: .3;
+}
+
+.primary {
+    background: rgb(11, 81, 220);
+    border: 0.01em solid #0727f5;
+    color: white;
+}
+
+.primary:hover {
+    background: rgb(6, 143, 231);
+
+}
+
+.primary:active {
+    background: rgb(87, 117, 193);
+}
+
+.primary:disabled {
+    background: rgb(11, 81, 220);
     cursor: progress;
     opacity: .3;
 }

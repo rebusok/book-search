@@ -1,10 +1,12 @@
 .searchContent {
   flex: 1;
+  background-color: #eeeeee;
   ul {
     background-color: #f9f9f9;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
     .searchItem {
       display: flex;
       flex-wrap: nowrap;
@@ -15,10 +17,12 @@
       margin-bottom: 3px;
       border-bottom: 1px solid #f2f0e7;
       align-items: center;
+
       .bookcover {
         width: 175px;
         height: 275px;
         margin: 10px 10px 0 5px;
+
         a {
 
           img {
@@ -27,16 +31,18 @@
           }
         }
       }
+
       .details {
         width: 220px;
+
         .title {
           margin-bottom: 10px;
           padding: 5px;
+
           a {
             color: black;
             font-weight: bold;
             text-decoration: none;
-
 
 
           }
@@ -49,15 +55,19 @@
 @media screen and (max-width: 600px) {
   .searchContent {
     ul {
+      padding: 2px;
       .searchItem {
         .bookcover {
           width: 155px;
         }
+
         .details {
           width: 200px;
+
           .title {
             a {
               text-align: start;
+
               h3 {
                 font-size: 18px;
               }

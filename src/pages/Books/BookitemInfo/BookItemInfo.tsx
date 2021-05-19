@@ -1,14 +1,12 @@
 import React, {FC, useCallback, useEffect, useState} from 'react';
 import {Redirect, useParams} from 'react-router-dom';
-import Modal from "../../../components/Modal/Modal";
 import {RoutingType} from "../../../routes/Routes";
-import {sizeTypeCover, urlImg} from "../../../api/api";
 import cls from './BookItemInfo.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../store/store";
 import {fetchBookInfo} from "../../../store/BookItem/BookItemReducer";
-import {StatusFetchEnum} from "../../../store/AppReducer/AppReducer";
-import Spinner from "../../../Common/preloader/Spinner";
+import {Modal} from "../../../components";
+import {sizeTypeCover, StatusFetchEnum, urlImg} from "../../../data/constant/rootConst";
 
 
 interface PropsType {
@@ -33,7 +31,7 @@ const BookItemInfo: FC<PropsType> = ({open, onClose}) => {
         if (status === StatusFetchEnum.LOADING) {
             return (
                 <Modal modal={open} setModal={setModal} onClose={onClose}>
-                    <Spinner/>
+                    <div/>
                 </Modal>
             )
         }

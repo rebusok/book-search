@@ -3,13 +3,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from 'react-router-dom';
 import {AppRootStateType} from "../../../store/store";
 import cls from './MappedBooks.module.scss'
-import {ResponseBookType, sizeTypeCover, urlImg} from "../../../api/api";
-import Paginator from "../../../Common/Paginator/PaginatorComponent";
+import {ResponseBookType,} from "../../../api/api";
 import {fetchBooks} from "../../../store/SearchBooksReducer/SearchBooksReducer";
 import {RoutingType} from "../../../routes/Routes";
 import {addSelectBook} from "../../../store/BookItem/BookItemReducer";
-import {StatusFetchEnum} from "../../../store/AppReducer/AppReducer";
-import Spinner from "../../../Common/preloader/Spinner";
+import {Paginator, Spinner} from "../../../Common";
+import {sizeTypeCover, StatusFetchEnum, urlImg} from "../../../data/constant/rootConst";
 
 
 const MappedBooks = () => {
@@ -43,11 +42,11 @@ const MappedBooks = () => {
     const selectBookHandler = (book: ResponseBookType) => {
         dispatch(addSelectBook(book))
     }
-    if(status === StatusFetchEnum.LOADING) {
+    if (status === StatusFetchEnum.LOADING) {
         return <Spinner/>
     }
-    if(status === StatusFetchEnum.FAIL) {
-        return  <div>{errorMes}</div>
+    if (status === StatusFetchEnum.FAIL) {
+        return <div>{errorMes}</div>
     }
     return (
         <div className={cls.searchContent}>

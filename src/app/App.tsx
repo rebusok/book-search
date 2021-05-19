@@ -1,17 +1,15 @@
 import React from 'react';
 import cls from './App.module.scss'
 import Routes from "../routes/Routes";
-import {SearchPanel} from "../pages/Books";
-
+import { Header } from '../components';
 
 
 function App() {
 
     return (
         <div className={cls.container}>
-            <SearchPanel/>
+            <Header/>
             <Routes/>
-
         </div>
     );
 }

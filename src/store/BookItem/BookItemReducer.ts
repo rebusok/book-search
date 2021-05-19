@@ -1,6 +1,7 @@
 import Api, {ResponseBookInfo, ResponseBookType} from "../../api/api";
 import {AppThunk} from "../store";
-import {setDisableBtn, setErrorMes, setStatusAC, StatusFetchEnum} from "../AppReducer/AppReducer";
+import {setDisableBtn, setErrorMes, setStatusAC} from "../AppReducer/AppReducer";
+import {StatusFetchEnum} from "../../data/constant/rootConst";
 
 export interface stateType {
     bookInfo: ResponseBookInfo

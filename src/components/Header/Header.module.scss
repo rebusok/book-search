@@ -1,0 +1,59 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding:  10px;
+  .logoWrapper {
+    display: flex;
+    align-items: center;
+    .logo {
+      img{
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .headerTitle {
+      text-align: center;
+      margin-left: 5px;
+    }
+  }
+  .searchPanel{
+    align-self: flex-end;
+    width: 60%;
+  }
+}
+
+
+@media screen and (max-width: 760px) {
+  .header{
+    .logoWrapper {
+      .headerTitle {
+        hr{
+          display: none;
+        }
+        h1{
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .logoWrapper {
+      .headerTitle {
+        h1{
+          font-size: 25px;
+        }
+      }
+    }
+    .searchPanel{
+
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+}

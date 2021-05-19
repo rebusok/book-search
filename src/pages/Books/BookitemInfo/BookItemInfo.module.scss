@@ -18,17 +18,21 @@
   display: flex;
   width: 100%;
   margin-top: 20px;
+
   .coverInfo {
     margin-right: 10px;
     min-width: 340px;
+
     img {
       height: 100%;
       width: 100%;
     }
   }
-  .titleInfo{
+
+  .titleInfo {
     width: 100%;
-    h3{
+
+    h3 {
       text-align: center;
     }
   }
@@ -37,6 +41,7 @@
 @media screen and (max-width: 720px) {
   .contentInfo {
     flex-direction: column;
+
     .coverInfo {
       margin-top: 10px;
       max-height: 400px;

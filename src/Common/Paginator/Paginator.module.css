@@ -1,20 +1,22 @@
 .paginator {
-  margin: 10px;
-  display: flex;
+    margin: 10px;
+    display: flex;
+    width: 100%;
 }
+
 .pageNumber {
-  padding: 2px 3px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-right: 2px;
+    padding: 2px 3px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 2px;
 }
 
 .pageNumber.selectedPage {
-  font-weight: bold;
-  background: cornflowerblue;
+    font-weight: bold;
+    background: cornflowerblue;
 }
 
 .btn {
-  border: 1px solid #ccc;
-  margin-right: 10px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
 }

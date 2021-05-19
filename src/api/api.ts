@@ -1,28 +1,20 @@
 import axios from "axios";
+import {urlEnum} from "../data/constant/rootConst";
 
 
 // http://covers.openlibrary.org/b/olid/${id}${size}.jpg
 const axiosInstance = axios.create();
-export enum sizeTypeCover  {
-    SMALL = '-S',
-    MEDIUM = '-M',
-    LARGE = '-L'
-}
-export enum urlEnum {
-    SEARCH = 'https://openlibrary.org/search.json',
-    FETCH_ONE_BOOK = 'https://openlibrary.org/works/',
-    FETCH_COVER_ONE_BOOK = 'https://covers.openlibrary.org/b/id/'
-}
-export const urlImg = 'https://covers.openlibrary.org/b/olid/';
-export type RequestStatusType = 'loading' | 'succeeded' | 'failed'
+
+
 const Api = {
-    searchBook(q:string, page?:number) {
-       return  axiosInstance.get<ResponseType>(urlEnum.SEARCH, {params: {q, mode:"ebooks", has_fulltext:true, page}})
+    searchBook(q: string, page?: number) {
+        return axiosInstance.get<ResponseType>(urlEnum.SEARCH, {params: {q, mode: "ebooks", has_fulltext: true, page}})
     },
-    fetchOneBook(bookId:string) {
+    fetchOneBook(bookId: string) {
         return axiosInstance.get<ResponseBookInfo>(`${urlEnum.FETCH_ONE_BOOK}${bookId}.json`)
     }
 }
+
 export interface ResponseType {
     docs: Array<ResponseBookType>
     num_found: number
@@ -33,14 +25,14 @@ export interface ResponseType {
 export interface ResponseBookInfo {
     authors: [
         {
-            author: {key: string},
-            type: {key: string}
+            author: { key: string },
+            type: { key: string }
         }
     ]
     covers: number[]
-    created: {type: string, value: string}
+    created: { type: string, value: string }
     key: string
-    last_modified: {type: string, value: string}
+    last_modified: { type: string, value: string }
     latest_revision: number
     revision: number
     subjects: string[]
